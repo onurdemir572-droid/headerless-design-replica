@@ -25,9 +25,9 @@ export const Route = createFileRoute("/")({
 
 function Select({ label, pin }: { label: string; pin?: boolean }) {
   return (
-    <div className="flex flex-col gap-1">
-      <span className="text-[15px] text-foreground">{label}</span>
-      <button className="flex h-10 min-w-[120px] items-center justify-between gap-3 rounded-lg border border-border bg-card px-3 text-sm font-medium shadow-sm">
+    <div className="flex min-w-[110px] flex-1 flex-col gap-1 lg:max-w-[150px]">
+      <span className="whitespace-nowrap text-[15px] text-foreground">{label}</span>
+      <button className="flex h-10 w-full items-center justify-between gap-3 rounded-lg border border-border bg-card px-3 text-sm font-medium shadow-sm">
         <span className="flex items-center gap-2">{pin && <MapPin className="h-4 w-4 text-brand" />}Tümü</span>
         <ChevronDown className="h-4 w-4" />
       </button>
@@ -124,15 +124,15 @@ function Index() {
           </div>
         </section>
 
-        <section className="mt-6 flex flex-wrap items-end gap-3 rounded-2xl lg:flex-nowrap lg:items-center lg:justify-between bg-card px-3 py-3 shadow-md">
+        <section className="mt-6 flex flex-wrap items-end gap-3 rounded-2xl lg:flex-nowrap lg:items-center lg:justify-between lg:gap-3 bg-card px-3 py-3 shadow-md">
           <div className="flex items-center gap-4">
             <span className="flex h-14 w-14 items-center justify-center rounded-full bg-brand-soft"><Filter className="h-8 w-8 text-brand" /></span>
-            <span className="mr-6 text-2xl font-extrabold">Filtrele</span>
+            <span className="mr-2 text-2xl font-extrabold">Filtrele</span>
           </div>
           <Select label="Marka" /><Select label="Ambalaj" /><Select label="Ölçü (Kalınlık)" /><Select label="Fiyat Aralığı" />
           <Select label="Şehir" pin /><Select label="İlçe" pin />
           <button className="mt-5 flex h-11 shrink-0 items-center gap-2 whitespace-nowrap rounded-lg border-2 border-brand px-4 font-bold"><Navigation className="h-5 w-5 text-brand" />Konumuma Göre Sırala</button>
-          <button className="mt-5 flex items-center gap-2 font-bold text-brand"><RefreshCw className="h-5 w-5" />Temizle</button>
+          <button className="mt-5 flex shrink-0 items-center gap-2 whitespace-nowrap pr-2 font-bold text-brand"><RefreshCw className="h-5 w-5" />Temizle</button>
         </section>
 
         <div className="mt-8 grid grid-cols-1 gap-6 lg:grid-cols-[266px_1fr]">
