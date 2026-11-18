@@ -27,7 +27,7 @@ function Select({ label, pin }: { label: string; pin?: boolean }) {
   return (
     <div className="flex flex-col gap-1">
       <span className="text-[15px] text-foreground">{label}</span>
-      <button className="flex h-10 min-w-[130px] items-center justify-between gap-3 rounded-lg border border-border bg-card px-3 text-sm font-medium shadow-sm">
+      <button className="flex h-10 min-w-[120px] items-center justify-between gap-3 rounded-lg border border-border bg-card px-3 text-sm font-medium shadow-sm">
         <span className="flex items-center gap-2">{pin && <MapPin className="h-4 w-4 text-brand" />}Tümü</span>
         <ChevronDown className="h-4 w-4" />
       </button>
@@ -56,14 +56,14 @@ function Group({ icon: Icon, title, all, items }: { icon: typeof Tag; title: str
 
 function Actions() {
   return (
-    <div className="mt-4 grid grid-cols-[1fr_auto_auto] gap-4">
-      <button className="flex h-11 items-center justify-center gap-3 rounded-lg bg-brand text-lg font-bold text-primary-foreground shadow-md transition hover:bg-brand-dark">
+    <div className="mt-4 grid grid-cols-1 gap-3 lg:grid-cols-[1fr_auto_auto] lg:gap-4">
+      <button className="flex h-11 items-center justify-center gap-3 rounded-lg bg-brand text-base lg:text-lg font-bold text-primary-foreground shadow-md transition hover:bg-brand-dark">
         <MessageCircle className="h-6 w-6" /> WhatsApp'tan Fiyat & Stok Sor
       </button>
-      <button className="flex h-11 w-[276px] items-center justify-center gap-2 rounded-lg border-2 border-border bg-card font-bold shadow-sm hover:bg-muted">
+      <button className="flex h-11 lg:w-[276px] items-center justify-center gap-2 rounded-lg border-2 border-border bg-card font-bold shadow-sm hover:bg-muted">
         <Store className="h-5 w-5" /> Mağaza Profilini Gör <ArrowRight className="h-4 w-4" />
       </button>
-      <button className="flex h-11 w-[230px] items-center justify-center gap-3 rounded-lg border-2 border-border bg-card text-lg font-bold shadow-sm hover:bg-muted">
+      <button className="flex h-11 lg:w-[230px] items-center justify-center gap-3 rounded-lg border-2 border-border bg-card text-lg font-bold shadow-sm hover:bg-muted">
         <Mail className="h-6 w-6 text-brand" /> Mesaj Gönder
       </button>
     </div>
@@ -72,19 +72,19 @@ function Actions() {
 
 function StoreHead({ logo, name, ago, line, rating, profile }: { logo: string; name: string; ago: string; line?: string; rating: boolean; profile?: boolean }) {
   return (
-    <div className="flex gap-5">
-      <div className="flex h-[76px] w-[92px] shrink-0 items-center justify-center overflow-hidden rounded-xl bg-card shadow-md">
+    <div className="flex gap-3 lg:gap-5">
+      <div className="flex h-14 w-16 shrink-0 lg:h-[76px] lg:w-[92px] items-center justify-center overflow-hidden rounded-xl bg-card shadow-md">
         <img src={logo} alt={name} className="h-full w-full object-contain" />
       </div>
       <div className="flex-1">
-        <div className="flex items-start justify-between">
+        <div className="flex flex-col items-start justify-between gap-2 lg:flex-row">
           <div>
-            <h3 className="flex items-center gap-2 text-[22px] font-extrabold">{name}<BadgeCheck className="h-6 w-6 fill-brand text-card" /></h3>
+            <h3 className="flex items-center gap-2 text-lg font-extrabold lg:text-[22px]">{name}<BadgeCheck className="h-6 w-6 fill-brand text-card" /></h3>
             <p className="mt-1 flex items-center gap-2 text-sm"><MapPin className="h-4 w-4" />Bandırma, Balıkesir <span>•</span> {ago}</p>
             {line && <p className="mt-1 flex items-center gap-2 text-sm"><Layers className="h-4 w-4" />{line}</p>}
           </div>
-          <div className="flex items-start gap-24">
-            <div className="flex flex-col items-end gap-3">
+          <div className="flex flex-wrap items-center gap-3 lg:items-start lg:gap-24">
+            <div className="flex flex-col items-start gap-3 lg:items-end">
               {rating && <span className="flex items-center gap-1 text-[15px]"><Star className="h-5 w-5 fill-chart-4 text-chart-4" /><b>4,8</b> (126 yorum)</span>}
               {profile && <button className="flex h-10 items-center gap-2 rounded-lg border-2 border-border bg-card px-5 font-bold shadow-sm">Mağaza Profilini Gör <ArrowRight className="h-4 w-4" /></button>}
             </div>
@@ -106,53 +106,53 @@ function Index() {
   const [more, setMore] = useState(false);
   return (
     <div className="min-h-screen bg-background font-sans text-foreground">
-      <div className="mx-auto max-w-[1460px] px-10 pb-14 pt-4">
-        <nav className="flex items-center gap-4 text-[15px]">
+      <div className="mx-auto max-w-[1460px] px-4 lg:px-10 pb-14 pt-4">
+        <nav className="flex flex-wrap items-center gap-2 text-[15px] lg:gap-4">
           <Home className="h-5 w-5" /><ChevronRight className="h-4 w-4" />Ürünler<ChevronRight className="h-4 w-4" />Sıvı Çivi<ChevronRight className="h-4 w-4" />Balıkesir Bandırma
         </nav>
 
-        <section className="mt-3 flex items-center gap-10">
+        <section className="mt-3 flex flex-col items-start gap-4 lg:flex-row lg:items-center lg:gap-10">
           <img src={hero.url} alt="Sıvı çivi" className="h-[188px] w-[225px] object-contain" />
-          <div className="h-[155px] w-[3px] rounded bg-brand" />
+          <div className="hidden h-[155px] w-[3px] rounded bg-brand lg:block" />
           <div>
-            <h1 className="text-[38px] font-extrabold tracking-tight">Sıvı Çivi — Balıkesir Bandırma</h1>
-            <p className="mt-2 text-xl leading-relaxed">Yapı projeleriniz için kaliteli ve dayanıklı sıvı çivi ürünlerini<br />Balıkesir Bandırma'daki güvenilir mağazalardan kolayca temin edin.</p>
-            <div className="mt-4 flex gap-8">
+            <h1 className="text-[28px] font-extrabold lg:text-[38px] tracking-tight">Sıvı Çivi — Balıkesir Bandırma</h1>
+            <p className="mt-2 text-base leading-relaxed lg:text-xl">Yapı projeleriniz için kaliteli ve dayanıklı sıvı çivi ürünlerini<br className="hidden lg:block" /> Balıkesir Bandırma'daki güvenilir mağazalardan kolayca temin edin.</p>
+            <div className="mt-4 flex flex-wrap gap-3 lg:gap-8">
               <span className="flex h-12 items-center gap-3 rounded-xl bg-card px-5 text-lg font-bold shadow-md"><Store className="h-7 w-7 text-brand" />3 mağazada</span>
               <span className="flex h-12 items-center gap-3 rounded-xl bg-card px-6 text-xl font-extrabold shadow-md"><Tag className="h-7 w-7 text-brand" />250 ₺ – 325 ₺</span>
             </div>
           </div>
         </section>
 
-        <section className="mt-6 flex items-center justify-between rounded-2xl bg-card px-3 py-3 shadow-md">
+        <section className="mt-6 flex flex-wrap items-end gap-3 rounded-2xl lg:flex-nowrap lg:items-center lg:justify-between bg-card px-3 py-3 shadow-md">
           <div className="flex items-center gap-4">
             <span className="flex h-14 w-14 items-center justify-center rounded-full bg-brand-soft"><Filter className="h-8 w-8 text-brand" /></span>
             <span className="mr-6 text-2xl font-extrabold">Filtrele</span>
           </div>
           <Select label="Marka" /><Select label="Ambalaj" /><Select label="Ölçü (Kalınlık)" /><Select label="Fiyat Aralığı" />
           <Select label="Şehir" pin /><Select label="İlçe" pin />
-          <button className="mt-5 flex h-11 items-center gap-2 rounded-lg border-2 border-brand px-4 font-bold"><Navigation className="h-5 w-5 text-brand" />Konumuma Göre Sırala</button>
+          <button className="mt-5 flex h-11 shrink-0 items-center gap-2 whitespace-nowrap rounded-lg border-2 border-brand px-4 font-bold"><Navigation className="h-5 w-5 text-brand" />Konumuma Göre Sırala</button>
           <button className="mt-5 flex items-center gap-2 font-bold text-brand"><RefreshCw className="h-5 w-5" />Temizle</button>
         </section>
 
-        <div className="mt-8 grid grid-cols-[266px_1fr] gap-6">
+        <div className="mt-8 grid grid-cols-1 gap-6 lg:grid-cols-[266px_1fr]">
           <aside className="self-start rounded-2xl bg-card px-4 py-4 shadow-md">
             <Group icon={Tag} title="Marka" all="Tüm Markalar" items={[["İzocam", 2], ["Knauf", 1], ["Paket", 1], ["Diğer", 0]]} />
             <Group icon={Package} title="Ambalaj" all="Tüm Ambalajlar" items={[["Paket 3 adet", 2], ["Paket 4 adet", 1], ["Paket 6 adet", 0]]} />
             <Group icon={Layers} title="Ölçü (Kalınlık)" all="Tüm Ölçüler" items={[["5 cm", 1], ["8 cm", 1], ["10 cm", 2]]} />
           </aside>
 
-          <main className="-mt-6">
+          <main className="min-w-0 lg:-mt-6">
             <p className="mb-2 text-right text-[15px]">2 mağaza listeleniyor</p>
             <div className="rounded-2xl bg-card p-4 shadow-md">
               <StoreHead logo={eymen.url} name="Eymen Nalbur" ago="3 ay önce güncellendi" line="Elektrik - Su - Hırdavat - Anahtar Teslim Tadilat" rating profile />
               <div className="mt-2 border-t border-border">
                 {rows.map((r, i) => (
-                  <div key={i} className="grid grid-cols-[100px_1fr_270px_auto] items-center border-b border-border py-1.5">
+                  <div key={i} className="grid grid-cols-[80px_1fr] items-center gap-x-2 gap-y-1 lg:grid-cols-[100px_1fr_270px_auto] lg:gap-0 border-b border-border py-1.5">
                     <img src={board.url} alt="" className="h-11 w-[74px] object-cover" />
                     <div><p className="text-lg font-extrabold">{r[0]}</p><p className="text-sm">{r[1]}</p></div>
-                    <div><p className="text-lg font-extrabold">{r[2]}</p><p className="text-sm">KDV dahil</p></div>
-                    <span className="flex h-9 w-36 items-center justify-center gap-3 rounded-lg bg-muted font-bold"><Package className="h-5 w-5" />{r[3]}</span>
+                    <div className="col-start-2 lg:col-start-auto"><p className="text-lg font-extrabold">{r[2]}</p><p className="text-sm">KDV dahil</p></div>
+                    <span className="col-start-2 flex h-9 w-36 items-center lg:col-start-auto justify-center gap-3 rounded-lg bg-muted font-bold"><Package className="h-5 w-5" />{r[3]}</span>
                   </div>
                 ))}
               </div>
@@ -162,7 +162,7 @@ function Index() {
 
             <div className="mt-6 rounded-2xl bg-card p-4 shadow-md">
               <StoreHead logo={ozay.url} name="Özay Ankastre" ago="4 ay önce güncellendi" line="Mobilya Aksesuarları ve Hırdavat" rating />
-              <p className="ml-[112px] mt-1 text-sm leading-relaxed">Bandırma ve çevresinde Mobilya Aksesuarları ve Hırdavat alanında 5000'den fazla stoğumuz ile<br />toptan ve perakende seçenekleri dahil olmak üzere hizmet vermekteyiz.</p>
+              <p className="mt-2 lg:ml-[112px] lg:mt-1 text-sm leading-relaxed">Bandırma ve çevresinde Mobilya Aksesuarları ve Hırdavat alanında 5000'den fazla stoğumuz ile<br className="hidden lg:block" /> toptan ve perakende seçenekleri dahil olmak üzere hizmet vermekteyiz.</p>
               <Actions />
             </div>
           </main>
