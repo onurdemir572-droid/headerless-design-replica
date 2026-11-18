@@ -39,6 +39,7 @@
   --radius-4xl: calc(var(--radius) + 16px);
   --color-background: var(--background);
   --color-brand: var(--brand);
+  --color-info: var(--info);
   --color-brand-soft: var(--brand-soft);
   --color-brand-dark: var(--brand-dark);
   --color-navy: var(--navy);
@@ -81,6 +82,7 @@
   --radius: 0.625rem;
   --background: oklch(0.985 0.003 250);
   --brand: oklch(0.6 0.17 145);
+  --info: oklch(0.55 0.14 245);
   --brand-dark: oklch(0.5 0.15 145);
   --brand-soft: oklch(0.95 0.04 145);
   --navy: oklch(0.22 0.04 255);

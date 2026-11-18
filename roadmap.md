@@ -1,0 +1,2 @@
+- [x] Mobilde filtreler kapalı
+- [ ] Tasarımı yeniden tara, birebir eşle (header yok)
